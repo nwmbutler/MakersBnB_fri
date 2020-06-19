@@ -3,12 +3,12 @@
 feature 'list a space' do
   scenario 'user can add a name of their space' do
     visit '/list_space'
-    expect(page).to have_content('Name')
+    expect(page).to have_content('Price')
   end
 
   scenario 'user can add a description of their space' do
     visit '/list_space'
-    expect(page).to have_content('Description')
+    expect(page).to have_content('night')
   end
 
   scenario 'user can add the price per night for their space' do

@@ -6,7 +6,7 @@ feature 'request' do
     sign_up
     login
     click_button 'View Requests'
-    expect(page).to have_content('your requests')
+    expect(page).to have_content('Your requests')
   end
 
   scenario 'user can click space button' do

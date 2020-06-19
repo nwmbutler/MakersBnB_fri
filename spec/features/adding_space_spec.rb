@@ -13,6 +13,6 @@ feature 'user can list a space' do
     sign_up
     login
     click_button 'List a space'
-    expect(page).to have_content('list a space')
+    expect(page).to have_content('List a space')
   end
 end
