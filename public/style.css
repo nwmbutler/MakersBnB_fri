@@ -1,0 +1,42 @@
+body{
+  text-align: center;
+font-family: sans-serif;
+color: black;
+background-image: url("https://imagesvc.meredithcorp.io/v3/mm/image?q=85&c=sc&poi=face&w=1600&h=1067&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F28%2F2019%2F07%2Fapollo-11-space-ship-airbnb-new-zealand-exterior-SPACEBNB0719.jpg");
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: 100%;
+background-position: center;
+margin: 0 auto;
+}
+
+input[type=submit] {
+    border-radius: 5px;
+    border: 0;
+    width: 120px;
+    height:25px;
+    font-family: sans-serif;
+    color: #FFF;
+    background: #2471A3;
+}
+
+button[type=submit] {
+    border-radius: 5px;
+    border: 0;
+    width: 120px;
+    height:25px;
+    font-family: sans-serif;
+    color: #FFF;
+    background: #2471A3;
+}
+
+.tab {
+overflow: hidden;
+text-align: right
+}
+
+ul { list-style-type:none; }
+
+h1, h2 {
+  color: #FFF;
+}
