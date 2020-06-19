@@ -1,115 +1,126 @@
-  # MakersBnB specification
+# MakersBnB - An AirBnB Clone Project
 
-  We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
+### Developers
 
-  ### Headline specifications
+- [Nick Butler](https://github.com/nwmbutler)
+- [Ola Oduola](https://github.com/ooduola)
+- [Rich Ewin](https://github.com/RichEwin)
+- [Tim Bishop](https://github.com/TimCPB)
 
-  - Any signed-up user can list a new space.
-  ```
-  As a host,
-  so I can list a new space,
-  I'd like to be able to sign-up to MakersBnB.
-  ```
+### Technologies
 
-  ```
-  As a host,
-  so guest can view my listing,
-  I'd like to list a new space.
-  ```
+- Programming Language: Ruby, HTML, CSS
+- Web Framework: Sinatra
+- Testing Framework: Rspec, Capybara
+- Database: PostgreSQL, TablePlus
+- Database Cleaner: To truncate the databases before/after each test
+- Password Encryption: BCrypt
+- Gems: Rubocop, Simplecov
 
-  - Users can list multiple spaces.
+### User Stories
 
-  ```
-  As a host,
-  so I can list several properties,
-  I'd like to be able to add multiple spaces.
-  ```
+Our goal as a team was to implement the [headline specifications](https://github.com/makersacademy/course/blob/master/makersbnb/specification_and_mockups.md) provided by our client. We broke down and achieved these specifications using the following user stories:
 
+```
+As a host,
+so I can list a new space,
+I'd like to be able to sign-up to MakersBnB.
+```
+```
+As a host,
+so guest can view my listing,
+I'd like to list a new space.
+```
+```
+As a host,
+so I can list several properties,
+I'd like to be able to add multiple spaces.
+```
+```
+As a host,
+so guests can identify my property,
+I'd like to be able to name my space.
+```
+```
+As a host,
+so guests can see more information about my space,
+I'd like to add a short description of the space.
+```
+```
+As a host,
+so guest know what their visit will cost,
+I'd like to add a price per night.
+```
+```
+As a host,
+so guests can see availability,
+I'd like to be able to add a range of dates the space is available.
+```
+```
+As a guest,
+to book a space for one night,
+I'd like to be able to request to hire a space
+```
+```
+As a guest,
+to keep track of my requests,
+I'd like to be able to see requests I've made.
+```
+```
+As a host,
+to see booking requests,
+I'd like to be able to see requests
+```
+```
+As a host,
+to control bookings,
+I'd like to be able to accept or reject requests.
+```
+```
+As a user,
+to stop double bookings from occurring,
+I should be unable to select a booked date.
+```
+```
+As a user,
+so spaces aren't unavailable prematurely,
+I can select a date until a request for that date is confirmed.
+```
 
-  - Users should be able to name their space, provide a short description of the space, and a price per night.
+## Project Structure
 
-  ```
-  As a host,
-  so guests can identify my property,
-  I'd like to be able to name my space.
-  ```
-  ```
-  As a host,
-  so guests can see more information about my space,
-  I'd like to add a short description of the space.
-  ```
-  ```
-  As a host,
-  so guest know what their visit will cost,
-  I'd like to add a price per night.
-  ```
-  - Users should be able to offer a range of dates where their space is available.
-  ```
-  As a host,
-  so guests can see availability,
-  I'd like to be able to add a range of dates the space is available.
-  ```
+- We ran three daily standups: morning, lunchtime and evening, which provided us with strict planning throughout the project.
+- We paired daily to complete allocated user stories. We switched pairs on a daily basis. At times, we used a technique called 'mobbing' to come together as a team if a pair was blocked. This worked amazingly well on every occasion!
+- We recorded the ongoing status of each user story using a [tracker](https://docs.google.com/spreadsheets/d/1jswG38PSips2JDHxPaiDdRx4TFHlVArAW4ObTufB7QI/edit#gid=0). This helped when allocating work and identifying each pair's workload.
+- We completed our first [MVP](https://github.com/ooduola/MakersBnB/blob/master/images/MakersBnB_page1.png) on Tuesday afternoon. We completed our second [MVP](https://miro.com/app/board/o9J_kqxPy_8=/) on Thursday afternoon.
+- We each contributed to a [workdoc](https://docs.google.com/document/d/1JNtCI9AY3DX4AiPzJy0I_Pzj_E0sV-UHCisdHpChO4c/edit?usp=sharing) daily that allowed each member of the team to input ideas, basic pseudocode to attack a problem, and collaborate on project strategy.
 
-  - Any signed-up user can request to hire any space for one night, and this should be approved by the user that owns that space.
+## Domain and Process Modelling
 
-  ```
-  As a guest,
-  to book a space for one night,
-  I'd like to be able to request to hire a space
-  ```
-  ```
-  As a guest,
-  to keep track of my requests,
-  I'd like to be able to see requests I've made.
-  ```
-  ```
-  As a host,
-  to see booking requests,
-  I'd like to be able to see requests
-  ```
-  ```
-  As a host,
-  to control bookings,
-  I'd like to be able to accept or reject requests.
-  ```
+- Planning was a key element in this project. We sketched basic designs daily of how we wanted our app to function.. Here is a sketch of our [MVC](https://github.com/ooduola/MakersBnB/blob/master/images/MakersBnB_mvp2.png?raw=true).
 
-  - Nights for which a space has already been booked should not be available for users to book that space.
+- Our app is split up into various classes that understands the behaviour of various methods. The classes encapsulate these behaviours.
 
-  ```
-  As a user,
-  to stop double bookings from occurring,
-  I should be unable to select a booked date.
-  ```
+Class ----> User
+Method (behaviour) ----> initialize(username, id, password), User.create and User.find
 
-  - Until a user has confirmed a booking request, that space can still be booked for that night.
+Class ----> Space
+Method (behaviour) ----> initialize(name, description, price)
 
-  ```
-  As a user,
-  so spaces aren't unavailable prematurely,
-  I can select a date until a request for that date is confirmed.
-  ```
+- Our app is fully tested, adopting both unit and feature testing.
 
-<!-- ### Nice-to-haves
+## How to run
 
-- Users should receive an email whenever one of the following happens:
- - They sign up
- - They create a space
- - They update a space
- - A user requests to book their space
- - They confirm a request
- - They request to book a space
- - Their request to book a space is confirmed
- - Their request to book a space is denied
-- Users should receive a text message to a provided number whenever one of the following happens:
- - A user requests to book their space
- - Their request to book a space is confirmed
- - Their request to book a space is denied
-- A ‘chat’ functionality once a space has been booked, allowing users whose space-booking request has been confirmed to chat with the user that owns that space
-- Basic payment implementation though Stripe. -->
+To run this program, you will need to create two databases. The first database is a test database that allows you to run tests. The second database allows you to navigate through the program in full production. We recommend installing [PostgreSQL](https://www.postgresql.org/):
 
-### Mockups
+- Terminal: Run ```psql```
+- Create both databases using the data in the ```migrations``` [directory](https://github.com/ooduola/MakersBnB/tree/master/dbNT/migrations)
+- Terminal: Run ```/q``` to quit
 
-Mockups for MakersBnB are available [here](https://github.com/makersacademy/course/blob/master/makersbnb/makers_bnb_images/MakersBnB_mockups.pdf).
+Once the databases have been installed:
 
-
-![Tracking pixel](https://githubanalytics.herokuapp.com/course/makersbnb/specification_and_mockups.md)
+- Fork and clone this repo to your chosen folder
+- Terminal: Run ```bundle install```to install gems
+- Terminal: Run ```rspec``` to view passing unit and feature tests
+- Terminal: Run ```rackup```to launch the app
+- In your preferred browser, navigate to ```localhost:9292```
